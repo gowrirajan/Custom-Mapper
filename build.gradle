@@ -30,6 +30,22 @@ dependencies {
 	
 }
 
+jar {
+    manifest {
+        attributes(
+            'Implementation-Title': 'Custom Mapper',
+            'Implementation-Version': version
+        )
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // Add this line
+
+     // Include resources in the JAR
+    from(sourceSets.main.resources.srcDirs) {
+        include 'META-INF/services/org.keycloak.protocol.ProtocolMapper'
+    }
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
