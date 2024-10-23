@@ -1,0 +1,35 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	//keycloak dependencies
+    implementation 'org.keycloak:keycloak-core:26.0.0'
+    implementation 'org.keycloak:keycloak-server-spi:26.0.0'
+    implementation 'org.keycloak:keycloak-server-spi-private:26.0.0'
+    implementation 'org.keycloak:keycloak-services:26.0.0'
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
