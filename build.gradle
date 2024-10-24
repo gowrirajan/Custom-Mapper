@@ -1,33 +1,85 @@
+// plugins {
+// 	id 'java'
+// 	// id 'org.springframework.boot' version '3.3.4'
+// 	id 'io.spring.dependency-management' version '1.1.6'
+// }
+
+// group = 'com.example'
+// version = '0.0.1-SNAPSHOT'
+
+// java {
+// 	toolchain {
+// 		languageVersion = JavaLanguageVersion.of(21)
+// 	}
+// }
+
+// repositories {
+// 	mavenCentral()
+// }
+
+// dependencies {
+// 	// implementation 'org.springframework.boot:spring-boot-starter-web'
+// 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+// 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+// 	//keycloak dependencies
+//     implementation 'org.keycloak:keycloak-core:26.0.0'
+//     implementation 'org.keycloak:keycloak-server-spi:26.0.0'
+//     implementation 'org.keycloak:keycloak-server-spi-private:26.0.0'
+//     implementation 'org.keycloak:keycloak-services:26.0.0'
+
+//     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+
+	
+// }
+
+// jar {
+//     manifest {
+//         attributes(
+//             'Implementation-Title': 'Custom Mapper',
+//             'Implementation-Version': version
+//         )
+//     }
+
+//     duplicatesStrategy = DuplicatesStrategy.EXCLUDE // Add this line
+
+//      // Include resources in the JAR
+//     from(sourceSets.main.resources.srcDirs) {
+//         include 'META-INF/services/org.keycloak.protocol.ProtocolMapper'
+//     }
+// }
+
+// tasks.named('test') {
+// 	useJUnitPlatform()
+// }
+
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.3.4'
-	id 'io.spring.dependency-management' version '1.1.6'
+    id 'java'
+    id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-	//keycloak dependencies
     implementation 'org.keycloak:keycloak-core:26.0.0'
     implementation 'org.keycloak:keycloak-server-spi:26.0.0'
     implementation 'org.keycloak:keycloak-server-spi-private:26.0.0'
     implementation 'org.keycloak:keycloak-services:26.0.0'
-	
+    
+    // Use JUnit directly
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }
 
 jar {
@@ -38,14 +90,14 @@ jar {
         )
     }
 
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // Add this line
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
-     // Include resources in the JAR
+    // Include resources in the JAR
     from(sourceSets.main.resources.srcDirs) {
         include 'META-INF/services/org.keycloak.protocol.ProtocolMapper'
     }
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

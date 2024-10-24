@@ -1,13 +1,10 @@
 package com.example.CustomMapper;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
 public class CustomMapperApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CustomMapperApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        // Your custom initialization logic for Keycloak or other components
+        System.out.println("Custom Mapper Application is running.");
+        // Additional setup for Keycloak can go here if needed
+    }
 }
